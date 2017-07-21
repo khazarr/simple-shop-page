@@ -26,6 +26,7 @@ html, body, .container-fluid{
     margin-left: 30px;
 }
 
+/*Default picture */
 #pic4{
     border: 4px solid black;
 }
@@ -40,6 +41,10 @@ html, body, .container-fluid{
     font-size: 20px;
     font-weight: 800;
 
+}
+
+#basket-add:hover{
+    background-color: #d9d9d9;
 }
 
 #price{
@@ -85,7 +90,5 @@ html, body, .container-fluid{
     margin-top: 25px;
 }
 
-.active-size{
-    background-color: #FFF; 
-    color: #3F3363;
-}
+
+
