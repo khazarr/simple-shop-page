@@ -15,12 +15,31 @@ html, body, .container-fluid{
     height: auto;
 }
 
+.small-pic{
+    width: 120px;
+    height: auto;
+    border: 2px solid #d4d4d4;
+}
+
+#thumb{
+    text-align: left;
+    margin-left: 30px;
+}
+
+#pic4{
+    border: 4px solid black;
+}
+
 #size-col{
     text-align: center;
 }
 
 #basket-add{
 
+}
+
+#price{
+    text-align: right;
 }
 
 #right-side{
@@ -37,4 +56,8 @@ html, body, .container-fluid{
     color: #3F3363;
     font-size: 30px;
     font-weight: 900;
+}
+
+active-pic{
+    border: 4px solid black;
 }
