@@ -35,11 +35,18 @@ html, body, .container-fluid{
 }
 
 #basket-add{
+    background-color: #FFF; 
+    color: #3F3363;
+    font-size: 20px;
+    font-weight: 800;
 
 }
 
 #price{
     text-align: right;
+    font-size: 30px;
+    margin-top: 50px;
+    margin-bottom: 10px;
 }
 
 #right-side{
@@ -58,6 +65,27 @@ html, body, .container-fluid{
     font-weight: 900;
 }
 
-active-pic{
-    border: 4px solid black;
+
+
+#size-helper{
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+#size-title{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#product-info{
+    margin-top: 10px;
+}
+
+.btn-group{
+    margin-top: 25px;
+}
+
+.active-size{
+    background-color: #FFF; 
+    color: #3F3363;
 }

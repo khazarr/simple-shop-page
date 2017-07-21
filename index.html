@@ -9,6 +9,22 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
           <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    
+    <script src="https://d3bo67muzbfgtl.cloudfront.net/edrone_2_0.js"></script>
+    <script type="text/javascript">
+   (function (srcjs) {
+       window._edrone = window._edrone || {};
+
+       _edrone.app_id = '59722eee745af';
+
+       var doc = document.createElement('script');
+       doc.type = 'text/javascript';
+       doc.async = true;
+       doc.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + srcjs;
+       var s = document.getElementsByTagName('script')[0];
+       s.parentNode.insertBefore(doc, s);
+   })("//d3bo67muzbfgtl.cloudfront.net/edrone_2_0.js");
+        </script>
     <script src="js/index.js"></script>
     </head>
 
@@ -36,8 +52,11 @@
         </div>
         <div class="col-md-4" id="right-side">
             
+            <div class="row">
+                <div id="size-title" class="col-md-8">Rozmiar</div>
+                <div id="size-helper" class="col-md-4">Jak dobrać rozmiar</div>
+            </div>
             
-            Rozmiar
             
             
             <div id="size-helper"></div>
@@ -59,6 +78,7 @@
             </div>
             
             <div id="price">259 zł</div>
+            
             <div id="buttons">
                 <button type="button" class="btn btn-primary btn-block" id="basket-add">Dodaj do koszyka</button>
             </div>

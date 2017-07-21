@@ -2,8 +2,23 @@
 $( document ).ready(function() {
     console.log( "ready!" );
     
-    //product view
     
+
+   
+
+    //product view -send
+       _edrone.app_id = '59722eee745af';
+       _edrone.version = '1.0.0';
+       _edrone.action_type = 'product_view';
+       _edrone.platform_version = '1.1.26';
+       _edrone.platform = 'customer';
+       _edrone.product_skus = '525104-021';
+       _edrone.product_ids = '12';
+       _edrone.product_titles = 'BUTY NIKE STEFAN JANOSKI G';
+       _edrone.product_images = 'http://i.imgur.com/quGZsz2.jpg';
+       _edrone.product_urls = 'index.html';
+       _edrone.product_category_ids = '2~3~4';
+       _edrone.product_category_names = 'Główna~Buty~Sportowe~Nike';
     
     //add to cart
     
