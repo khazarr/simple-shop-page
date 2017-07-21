@@ -1,3 +1,1 @@
-A Pen created at CodePen.io. You can find this one at http://codepen.io/khazarr/pen/gxYMKg.
-
- 
+Recruitment task for a web debelopment internship
