@@ -1,0 +1,40 @@
+* {
+  border-radius: 0 !important;
+}
+
+html, body, .container-fluid{
+   height:100%;
+}
+
+#gallery{
+    text-align: center
+}
+
+#big-pic{
+    width: 60%;
+    height: auto;
+}
+
+#size-col{
+    text-align: center;
+}
+
+#basket-add{
+
+}
+
+#right-side{
+    background-color: #3F3363;
+    color: #FFFFFF;
+    height: 85vh;
+    
+    
+    
+}
+
+#header{
+    background-color: #F8F8F8;
+    color: #3F3363;
+    font-size: 30px;
+    font-weight: 900;
+}
