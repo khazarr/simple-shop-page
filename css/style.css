@@ -70,6 +70,7 @@ html, body, .container-fluid{
     color: #3F3363;
     font-size: 30px;
     font-weight: 900;
+    padding-bottom: 20px;
 }
 
 
@@ -86,11 +87,119 @@ html, body, .container-fluid{
 
 #product-info{
     margin-top: 10px;
+    margin-bottom: 230px;
 }
 
-.btn-group{
-    margin-top: 25px;
+#size-col{
+    text-align: center; 
+    margin-top: 30px;
+    
 }
 
 
 
+.size-eu{
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.size-cm{
+    font-size: 13px;
+}
+
+
+/* buttons props*/
+
+.btn-size { 
+  color: #FFFFFF; 
+  background-color: #57468A; 
+  border-color: #57468A; 
+} 
+ 
+.btn-size:hover, 
+.btn-size:focus, 
+.btn-size:active, 
+.btn-size.active, 
+.open .dropdown-toggle.btn-size { 
+  color: #FFFFFF; 
+  background-color: #57468A; 
+  border-color: #57468A; 
+} 
+ 
+.btn-size:active, 
+.btn-size.active, 
+.open .dropdown-toggle.btn-size { 
+  background-image: none; 
+} 
+ 
+.btn-size.disabled, 
+.btn-size[disabled], 
+fieldset[disabled] .btn-size, 
+.btn-size.disabled:hover, 
+.btn-size[disabled]:hover, 
+fieldset[disabled] .btn-size:hover, 
+.btn-size.disabled:focus, 
+.btn-size[disabled]:focus, 
+fieldset[disabled] .btn-size:focus, 
+.btn-size.disabled:active, 
+.btn-size[disabled]:active, 
+fieldset[disabled] .btn-size:active, 
+.btn-size.disabled.active, 
+.btn-size[disabled].active, 
+fieldset[disabled] .btn-size.active { 
+  background-color: #57468A; 
+  border-color: #57468A; 
+} 
+ 
+.btn-size .badge { 
+  color: #57468A; 
+  background-color: #FFFFFF; 
+}
+
+
+
+.btn-size-active { 
+  color: #3F3363; 
+  background-color: #FFFFFF; 
+  border-color: #FFFFFF; 
+} 
+ 
+.btn-size-active:hover, 
+.btn-size-active:focus, 
+.btn-size-active:active, 
+.btn-size-active.active, 
+.open .dropdown-toggle.btn-size-active { 
+  color: #3F3363; 
+  background-color: #FFFFFF; 
+  border-color: #FFFFFF; 
+} 
+ 
+.btn-size-active:active, 
+.btn-size-active.active, 
+.open .dropdown-toggle.btn-size-active { 
+  background-image: none; 
+} 
+ 
+.btn-size-active.disabled, 
+.btn-size-active[disabled], 
+fieldset[disabled] .btn-size-active, 
+.btn-size-active.disabled:hover, 
+.btn-size-active[disabled]:hover, 
+fieldset[disabled] .btn-size-active:hover, 
+.btn-size-active.disabled:focus, 
+.btn-size-active[disabled]:focus, 
+fieldset[disabled] .btn-size-active:focus, 
+.btn-size-active.disabled:active, 
+.btn-size-active[disabled]:active, 
+fieldset[disabled] .btn-size-active:active, 
+.btn-size-active.disabled.active, 
+.btn-size-active[disabled].active, 
+fieldset[disabled] .btn-size-active.active { 
+  background-color: #FFFFFF; 
+  border-color: #FFFFFF; 
+} 
+ 
+.btn-size-active .badge { 
+  color: #FFFFFF; 
+  background-color: #3F3363; 
+}

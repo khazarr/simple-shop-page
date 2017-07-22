@@ -10,7 +10,7 @@
         <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     
-        <script src="https://d3bo67muzbfgtl.cloudfront.net/edrone_2_0.js"></script>
+
         <script type="text/javascript">
      
         </script>
@@ -42,14 +42,29 @@
         </div>
         <div class="col-md-4" id="right-side">
             
-            <div class="row">
+            <div class="row" id="size-top">
                 <div id="size-title" class="col-md-8">Rozmiar</div>
                 <div id="size-helper" class="col-md-4">Jak dobrać rozmiar</div>
             </div>
             
+            <!--
+            <div class="row size-cols">
+                <div id ="size1" class=" col-md-4 size-btn">
+                    <div class="size-eu">36</div>
+                    <div class="size-cm">23 cm</div>
+                </div>
+                <div id ="size2" class=" col-md-4 size-btn">
+                    <div class="size-eu">36,5</div>
+                    <div class="size-cm">23 cm</div>
+                </div>
+                <div id ="size3" class=" col-md-4 size-btn">
+                    <div class="size-eu">36,5</div>
+                    <div class="size-cm">23 cm</div>
+                </div>
+            </div>
             
             
-            <div id="size-helper"></div>
+           
             <div id="size-col" class="row">
                 <div class="btn-group">
                     <button type="button" class="btn btn-primary size-button" id="size36">
@@ -61,10 +76,26 @@
                         <div class="size-cm">23,5 cm</div>
                     </button>
                     <button type="button" class="btn btn-primary size-button" id="size40">
-                        <div class="size-eu">40</div>
-                        <div class="size-cm">25 cm</div>
+                        40 <br> 25 cm
                     </button>
                 </div>
+            </div>
+           
+-->
+            <div class="row" id="size-col">
+                <button id="size-btn-1" class="btn-size btn-size-active">
+                        <div class="size-eu">36</div>
+                        <div class="size-cm">23 cm</div>
+                </button>
+                 <button id="size-btn-2"  class="btn-size">
+                        <div class="size-eu">36,5</div>
+                        <div class="size-cm">23,5 cm</div>
+                </button>
+                <button id="size-btn-3" class="btn-size">
+                        <div class="size-eu">40</div>
+                        <div class="size-cm">25 cm</div>
+                </button>
+                
             </div>
             
             <div id="price">259,00 zł</div>

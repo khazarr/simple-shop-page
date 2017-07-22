@@ -35,18 +35,19 @@ $( document ).ready(function() {
     //add to cart - send trace
     $("#basket-add").click(function(){
         //$.getScript('js/add-to-cart.js');
-        (function (srcjs) {
-            window._edrone = window._edrone || {};
+        
+       (function (srcjs) {
+           window._edrone = window._edrone || {};
 
-            _edrone.app_id = '59722eee745af';
+           _edrone.app_id = '59722eee745af';
 
-            var doc = document.createElement('script');
-            doc.type = 'text/javascript';
-            doc.async = true;
-            doc.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + srcjs;
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(doc, s);
-        })("//d3bo67muzbfgtl.cloudfront.net/edrone_2_0.js");       
+           var doc = document.createElement('script');
+           doc.type = 'text/javascript';
+           doc.async = true;
+           doc.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + srcjs;
+           var s = document.getElementsByTagName('script')[0];
+           s.parentNode.insertBefore(doc, s);
+       })("//d3bo67muzbfgtl.cloudfront.net/edrone_2_0.js");       
 
 
         _edrone.app_id = '59722eee745af';
@@ -56,11 +57,12 @@ $( document ).ready(function() {
        _edrone.platform = 'customer';
        _edrone.product_skus = '525104021';
        _edrone.product_ids = '021';     
-       _edrone.product_titles = 'BUTY NIKE SUPER';
+       _edrone.product_titles = 'BUTY NIKE JANOSKI GS';
        _edrone.product_images = 'http://i.imgur.com/quGZsz2.jpg';
        _edrone.product_urls = 'index.html';
        _edrone.product_category_ids = '2~3~4';
        _edrone.product_category_names = 'Główna~Buty~Sportowe~Nike';
+       
         alert("Dodano do koszyka");
         
  
@@ -106,6 +108,28 @@ $( document ).ready(function() {
     });
   
     
+    //size button style change
+    
+    $("#size-btn-1").click(function(){
+       
+        $("#size-col").children().removeClass("btn-size-active");
+        $("#size-btn-1").addClass("btn-size-active");
+        
+    });
+    
+    $("#size-btn-2").click(function(){
+       
+        $("#size-col").children().removeClass("btn-size-active");
+        $("#size-btn-2").addClass("btn-size-active");
+        
+    });
+    
+      $("#size-btn-3").click(function(){
+       
+        $("#size-col").children().removeClass("btn-size-active");
+        $("#size-btn-3").addClass("btn-size-active");
+        
+    });
     
     
     
