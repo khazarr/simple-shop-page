@@ -42,7 +42,8 @@ var products = [
     product_url:"http://i.imgur.com/quGZsz2.jpg",
     product_category_id:"2~3~4",
     product_category_name:"Główna~Buty~Sportowe~Nike",
-    price: "259"
+    price: "259",
+    active: true
   },
   {
     product_id:"022",
@@ -50,7 +51,8 @@ var products = [
     product_url:"https://static.eastend.pl/e2pl/zdjecia/buty-nike-zoom-stefan-janoski-cnvs-642-00-640c.jpg",
     product_category_id:"2~3~4",
     product_category_name:"Główna~Buty~Sportowe~Nike",
-    price: "259"
+    price: "259",
+    active: false
   },
   {
     product_id:"023",
@@ -58,7 +60,8 @@ var products = [
     product_url:"https://static.eastend.pl/e2pl/zdjecia/buty-nike-zoom-stefan-janoski-603-00-640c.jpg",
     product_category_id:"2~3~4",
     product_category_name:"Główna~Buty~Sportowe~Nike",
-    price: "259"
+    price: "259",
+    active: false
   },
   {
     product_id:"024",
@@ -66,7 +69,8 @@ var products = [
     product_url:"https://static.eastend.pl/e2pl/zdjecia/buty-nike-zoom-stefan-janoski-215-00-640c.jpg",
     product_category_id:"2~3~4",
     product_category_name:"Główna~Buty~Sportowe~Nike",
-    price: "259"
+    price: "259",
+    active: false
   },
   {
     product_id:"025",
@@ -74,7 +78,8 @@ var products = [
     product_url:"https://static.eastend.pl/e2pl/zdjecia/buty-nike-zoom-stefan-janoski-409-00-640c.jpg",
     product_category_id:"2~3~4",
     product_category_name:"Główna~Buty~Sportowe~Nike",
-    price: "259"
+    price: "259",
+    active: false
   },
 
 ];
@@ -95,6 +100,30 @@ var products = [
     $(".small-pic").click(function() {
       var that = $(this);
       console.log("Product with id:" + that.data('id')+ "clicked");
+
+      //change page view
+
+      //change state of product to active
+      for(var i = 0; i< products.length ; i++){
+        products[i]['active'] = false;
+      }
+
+      products[that.data('id')]['active'] = true;
+
+      //console.log(products[that.data('id')]);
+      //console.log(products);
+
+      //send trace product view
+
+      _edrone.product_ids = products[that.data('id')]['product_id'];
+      _edrone.product_titles = products[that.data('id')]['product_title'];
+      _edrone.product_images = products[that.data('id')]['product_url'];
+      _edrone.product_urls = 'https://www.wp.pl/';
+      _edrone.product_category_ids = '2~3~4';
+      _edrone.product_category_names = 'Główna~Buty~Sportowe~Nike';
+      _edrone.action_type = 'product_view';
+      _edrone.init();
+
     });
 
 
