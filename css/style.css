@@ -38,7 +38,7 @@ html, body, .container-fluid{
 }
 
 #basket-add{
-    background-color: #FFF; 
+    background-color: #FFF;
     color: #3F3363;
     font-size: 20px;
     font-weight: 800;
@@ -48,6 +48,34 @@ html, body, .container-fluid{
 #basket-add:hover{
     background-color: #d9d9d9;
 }
+
+#buy-button{
+    background-color: #FFF;
+    color: #3F3363;
+    font-size: 20px;
+    font-weight: 800;
+    margin-top: 1em;
+
+}
+
+#buy-button:hover{
+    background-color: #d9d9d9;
+}
+
+#clear-basket{
+    background-color: #FFF;
+    color: #3F3363;
+    font-size: 20px;
+    font-weight: 800;
+    margin-top: 1em;
+
+}
+
+#clear-basket:hover{
+    background-color: #d9d9d9;
+}
+
+
 
 #price{
     text-align: right;
@@ -60,9 +88,9 @@ html, body, .container-fluid{
     background-color: #3F3363;
     color: #FFFFFF;
     height ;
-    
-    
-    
+
+
+
 }
 
 #header{
@@ -91,12 +119,15 @@ html, body, .container-fluid{
 }
 
 #size-col{
-    text-align: center; 
+    text-align: center;
     margin-top: 30px;
-    
+
 }
 
-
+#basket-info{
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
 
 .size-eu{
     font-size: 18px;
@@ -110,96 +141,96 @@ html, body, .container-fluid{
 
 /* buttons props*/
 
-.btn-size { 
-  color: #FFFFFF; 
-  background-color: #57468A; 
-  border-color: #57468A; 
-} 
- 
-.btn-size:hover, 
-.btn-size:focus, 
-.btn-size:active, 
-.btn-size.active, 
-.open .dropdown-toggle.btn-size { 
-  color: #FFFFFF; 
-  background-color: #57468A; 
-  border-color: #57468A; 
-} 
- 
-.btn-size:active, 
-.btn-size.active, 
-.open .dropdown-toggle.btn-size { 
-  background-image: none; 
-} 
- 
-.btn-size.disabled, 
-.btn-size[disabled], 
-fieldset[disabled] .btn-size, 
-.btn-size.disabled:hover, 
-.btn-size[disabled]:hover, 
-fieldset[disabled] .btn-size:hover, 
-.btn-size.disabled:focus, 
-.btn-size[disabled]:focus, 
-fieldset[disabled] .btn-size:focus, 
-.btn-size.disabled:active, 
-.btn-size[disabled]:active, 
-fieldset[disabled] .btn-size:active, 
-.btn-size.disabled.active, 
-.btn-size[disabled].active, 
-fieldset[disabled] .btn-size.active { 
-  background-color: #57468A; 
-  border-color: #57468A; 
-} 
- 
-.btn-size .badge { 
-  color: #57468A; 
-  background-color: #FFFFFF; 
+.btn-size {
+  color: #FFFFFF;
+  background-color: #57468A;
+  border-color: #57468A;
+}
+
+.btn-size:hover,
+.btn-size:focus,
+.btn-size:active,
+.btn-size.active,
+.open .dropdown-toggle.btn-size {
+  color: #FFFFFF;
+  background-color: #57468A;
+  border-color: #57468A;
+}
+
+.btn-size:active,
+.btn-size.active,
+.open .dropdown-toggle.btn-size {
+  background-image: none;
+}
+
+.btn-size.disabled,
+.btn-size[disabled],
+fieldset[disabled] .btn-size,
+.btn-size.disabled:hover,
+.btn-size[disabled]:hover,
+fieldset[disabled] .btn-size:hover,
+.btn-size.disabled:focus,
+.btn-size[disabled]:focus,
+fieldset[disabled] .btn-size:focus,
+.btn-size.disabled:active,
+.btn-size[disabled]:active,
+fieldset[disabled] .btn-size:active,
+.btn-size.disabled.active,
+.btn-size[disabled].active,
+fieldset[disabled] .btn-size.active {
+  background-color: #57468A;
+  border-color: #57468A;
+}
+
+.btn-size .badge {
+  color: #57468A;
+  background-color: #FFFFFF;
 }
 
 
 
-.btn-size-active { 
-  color: #3F3363; 
-  background-color: #FFFFFF; 
-  border-color: #FFFFFF; 
-} 
- 
-.btn-size-active:hover, 
-.btn-size-active:focus, 
-.btn-size-active:active, 
-.btn-size-active.active, 
-.open .dropdown-toggle.btn-size-active { 
-  color: #3F3363; 
-  background-color: #FFFFFF; 
-  border-color: #FFFFFF; 
-} 
- 
-.btn-size-active:active, 
-.btn-size-active.active, 
-.open .dropdown-toggle.btn-size-active { 
-  background-image: none; 
-} 
- 
-.btn-size-active.disabled, 
-.btn-size-active[disabled], 
-fieldset[disabled] .btn-size-active, 
-.btn-size-active.disabled:hover, 
-.btn-size-active[disabled]:hover, 
-fieldset[disabled] .btn-size-active:hover, 
-.btn-size-active.disabled:focus, 
-.btn-size-active[disabled]:focus, 
-fieldset[disabled] .btn-size-active:focus, 
-.btn-size-active.disabled:active, 
-.btn-size-active[disabled]:active, 
-fieldset[disabled] .btn-size-active:active, 
-.btn-size-active.disabled.active, 
-.btn-size-active[disabled].active, 
-fieldset[disabled] .btn-size-active.active { 
-  background-color: #FFFFFF; 
-  border-color: #FFFFFF; 
-} 
- 
-.btn-size-active .badge { 
-  color: #FFFFFF; 
-  background-color: #3F3363; 
+.btn-size-active {
+  color: #3F3363;
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+}
+
+.btn-size-active:hover,
+.btn-size-active:focus,
+.btn-size-active:active,
+.btn-size-active.active,
+.open .dropdown-toggle.btn-size-active {
+  color: #3F3363;
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+}
+
+.btn-size-active:active,
+.btn-size-active.active,
+.open .dropdown-toggle.btn-size-active {
+  background-image: none;
+}
+
+.btn-size-active.disabled,
+.btn-size-active[disabled],
+fieldset[disabled] .btn-size-active,
+.btn-size-active.disabled:hover,
+.btn-size-active[disabled]:hover,
+fieldset[disabled] .btn-size-active:hover,
+.btn-size-active.disabled:focus,
+.btn-size-active[disabled]:focus,
+fieldset[disabled] .btn-size-active:focus,
+.btn-size-active.disabled:active,
+.btn-size-active[disabled]:active,
+fieldset[disabled] .btn-size-active:active,
+.btn-size-active.disabled.active,
+.btn-size-active[disabled].active,
+fieldset[disabled] .btn-size-active.active {
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+}
+
+.btn-size-active .badge {
+  color: #FFFFFF;
+  background-color: #3F3363;
 }

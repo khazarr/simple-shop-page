@@ -43,41 +43,7 @@
                 <div id="size-helper" class="col-md-4">Jak dobrać rozmiar</div>
             </div>
 
-            <!--
-            <div class="row size-cols">
-                <div id ="size1" class=" col-md-4 size-btn">
-                    <div class="size-eu">36</div>
-                    <div class="size-cm">23 cm</div>
-                </div>
-                <div id ="size2" class=" col-md-4 size-btn">
-                    <div class="size-eu">36,5</div>
-                    <div class="size-cm">23 cm</div>
-                </div>
-                <div id ="size3" class=" col-md-4 size-btn">
-                    <div class="size-eu">36,5</div>
-                    <div class="size-cm">23 cm</div>
-                </div>
-            </div>
 
-
-
-            <div id="size-col" class="row">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-primary size-button" id="size36">
-                        <div class="size-eu">36</div>
-                        <div class="size-cm">23 cm</div>
-                    </button>
-                    <button type="button" class="btn btn-primary size-button" id="size365">
-                        <div class="size-eu">36,5</div>
-                        <div class="size-cm">23,5 cm</div>
-                    </button>
-                    <button type="button" class="btn btn-primary size-button" id="size40">
-                        40 <br> 25 cm
-                    </button>
-                </div>
-            </div>
-
--->
             <div class="row" id="size-col">
                 <button id="size-btn-1" class="btn-size btn-size-active">
                         <div class="size-eu">36</div>
@@ -96,8 +62,14 @@
 
             <div id="price">259,00 zł</div>
 
+            <div id="basket-info">Elements in basket:</div>
+
             <div id="buttons">
                 <button type="button" class="btn btn-primary btn-block" id="basket-add">Dodaj do koszyka</button>
+            </div>
+
+            <div id="buttons">
+                <button type="button" class="btn btn-primary btn-block" id="buy-button" data-toggle="modal" data-target="#myModal">Zrealizuj</button>
             </div>
 
 
@@ -108,8 +80,73 @@
                     <li>darmowy zwrot i wymiana</li>
                 </ul>
             </div>
+
+            <div id="buttons">
+                <button type="button" class="btn btn-primary btn-block" id="clear-basket">Usuń koszyk</button>
+            </div>
+
         </div>
       </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Zamówienie</h4>
+      </div>
+      <div class="modal-body">
+        <div id="basket-quantity-total"></div>
+        <div id="basket-value-total"></div>
+        <form class="form-horizontal">
+
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="name">Imię:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="name-form" placeholder="Podaj swoje imię">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="surname">Nazwisko:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="surname-form" placeholder="Podaj swoje nazwisko">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Email:</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" id="email-form" placeholder="Enter email">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="surname">Miasto:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="city-form" placeholder="Wpisz miasto">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label><input type="checkbox" id="subscribe-form"> Subksrybuj</label>
+              </div>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+        <button id="place-order" type="button" class="btn btn-primary">Kontynuuj</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 
