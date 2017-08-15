@@ -1,4 +1,4 @@
-//function
+//functions
 function jsonToUri(json) {
   return encodeURIComponent(JSON.stringify(json));
 }
@@ -128,6 +128,56 @@ function basketClear() {
 
 }
 
+
+function mailValidate(email){
+  var re = /\S+@\S+\.\S+/;
+
+  if(re.test(email)){
+    return true;
+  }
+  else{
+    alert("Wprowadź poprawny adres email.")
+    return false;
+  }
+}
+
+function textValidate(text){
+  var re = /^[a-zA-Z]+$/;
+
+  if(text === ""){
+    alert("Żadne pole nie może byc puste");
+    return false;
+  }
+
+  if(re.test(text)){
+    return true;
+  }
+  else{
+    alert(text + " jest niepoprawne. Użyj tylko liter, bez polskich znaków.");
+    return false;
+  }
+
+}
+
+
+function validateOrderInput(){
+
+  var nameVal = textValidate($("#name-form").val());
+  if(!nameVal) return false;
+
+  var surnameVal = textValidate($("#surname-form").val());
+  if(!surnameVal) return false;
+
+  var mailVal = mailValidate($("#email-form").val());
+  if(!mailVal) return false;
+
+  var cityVal = textValidate($("#city-form").val());
+  if(!cityVal) return false;
+
+
+  return true;
+}
+
     //hide buy-button until basket not empty - check local storage
     if(localStorage.getItem("edrone_basket") === null ){
       $("#buy-button").hide();
@@ -254,55 +304,38 @@ function basketClear() {
     //place order
     $("#place-order").click(function () {
         console.log("Kupuje!");
+        //create new order object
         var order = {};
 
         //prepare data for POST
         // ids, titles, imgages, urls,categories,prod
         var ids = "";
-        for(var i = 0; i < basket.length ; i++){
-          ids += basket[i]['product_id'] + "|";
-        }
-        ids = ids.slice(0,-1);
-
-        order['product_ids'] = ids;
-
         var titles = "";
-        for(var i = 0; i < basket.length ; i++){
-          titles += basket[i]['product_title'] + "|";
-        }
-        titles = titles.slice(0,-1);
-
-        order['product_titles'] = titles;
-
         var imgs = "";
-        for(var i = 0; i < basket.length ; i++){
-          imgs += basket[i]['product_url'] + "|";
-        }
-        imgs = imgs.slice(0,-1);
-
-        order['product_images'] = imgs;
-        order['product_urls'] = imgs;
-
-
         var catIds = "";
         var counts = "";
         var catNames = "";
+
         for(var i = 0; i < basket.length ; i++){
           catIds += basket[i]['product_category_id'] + "|";
           counts += "1|";
           catNames += basket[i]['product_category_name'] + "|";
+          ids += basket[i]['product_id'] + "|";
+          titles += basket[i]['product_title'] + "|";
+          imgs += basket[i]['product_url'] + "|";
         }
         catIds = catIds.slice(0,-1);
         counts = counts.slice(0,-1);
         catNames = catNames.slice(0,-1);
+        imgs = imgs.slice(0,-1);
+        titles = titles.slice(0,-1);
+        ids = ids.slice(0,-1);
 
-
+        // fill order objcect with data
+        order['action_type'] = 'order';
         order['product_category_ids'] = catIds;
         order['product_category_names'] = catNames;
         order['product_counts'] = counts;
-
-
-        order['action_type'] = 'order';
         order['email'] = $("#email-form").val();
         order['first_name'] = $("#name-form").val();
         order['last_name'] = $("#surname-form").val();
@@ -314,46 +347,31 @@ function basketClear() {
         order['country'] = 'Polska';
         order['base_currency'] = 'PLN';
         order['order_currency'] = 'PLN';
+        order['product_images'] = imgs;
+        order['product_urls'] = imgs;
+        order['product_titles'] = titles;
+        order['product_ids'] = ids;
 
-        //obligatory edrone fields
-
+        //obligatory edrone lib fields
         order['app_id'] = _edrone['app_id'];
         order['version'] = _edrone['version'];
         order['platform_version'] = _edrone['platform_version'];
         order['platform'] = _edrone['platform'];
 
-      //  _edrone.action_type = 'order';
-      //  _edrone.email = order['email'];
-      //  _edrone.first_name = order['first_name'];
-      //  _edrone.last_name = order['last_name'];
-      //  _edrone.subscriber_status = order['subscribe'];
-      //  _edrone.product_ids = order['ids'];
-      //  _edrone.product_titles = order['titles'];
-      //  _edrone.product_images = order['imgs'];
-      //  _edrone.product_urls = order['urls'];
-      //  _edrone.product_category_ids = order['catIds'];
-      //  _edrone.product_category_names = order['catNames'];
-      //  _edrone.product_counts = order['counts'];
-      //  _edrone.order_id = '1';
-      //  _edrone.country = 'Polska';
-      //  _edrone.city = order['city'];
-      //  _edrone.base_currency = 'PLN';
-      //  _edrone.order_currency = 'PLN';
-      //  _edrone.base_payment_value = order['payment_value'];
-      //  _edrone.order_payment_value = order['payment_value'];
-
-        //AJAX send
-        var json_upload = JSON.stringify(_edrone);
+        //encode JSON to x-www-form-urlencoded
         var edroneURI = xwwwfurlenc(order);
-        //console.log(json_upload);
-        console.log(edroneURI);
+        //console.log(edroneURI);
+
+
+        //before sending data to check if they are valid
+
+        if(validateOrderInput()){
 
         $.ajax({
             url: "js/edrone.php",
             type: "post",
             data: {data:edroneURI} ,
             success: function (response) {
-               // you will get response from your php page (what you echo or print)
                console.log(response);
                alert("Zamówienie przetworzone pomyślnie");
                $("#myModal").modal('hide');
@@ -362,9 +380,10 @@ function basketClear() {
             error: function(jqXHR, textStatus, errorThrown) {
                console.log(textStatus, errorThrown);
             }
-
-
         });
+      }
+
+
 
     })
     //size button style change
