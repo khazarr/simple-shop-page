@@ -39,7 +39,7 @@
     echo $response;
   }
 
-
+  echo "\n \n $content \n \n";
   echo "DOSZŁO";
 
  ?>

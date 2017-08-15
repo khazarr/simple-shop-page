@@ -264,7 +264,7 @@ function basketClear() {
         }
         ids = ids.slice(0,-1);
 
-        order['ids'] = ids;
+        order['product_ids'] = ids;
 
         var titles = "";
         for(var i = 0; i < basket.length ; i++){
@@ -272,7 +272,7 @@ function basketClear() {
         }
         titles = titles.slice(0,-1);
 
-        order['titles'] = titles;
+        order['product_titles'] = titles;
 
         var imgs = "";
         for(var i = 0; i < basket.length ; i++){
@@ -280,8 +280,8 @@ function basketClear() {
         }
         imgs = imgs.slice(0,-1);
 
-        order['imgs'] = imgs;
-        order['urls'] = imgs;
+        order['product_images'] = imgs;
+        order['product_urls'] = imgs;
 
 
         var catIds = "";
@@ -295,45 +295,58 @@ function basketClear() {
         catIds = catIds.slice(0,-1);
         counts = counts.slice(0,-1);
         catNames = catNames.slice(0,-1);
-        order['catIds'] = catIds;
-        order['catNames'] = catNames;
-        order['counts'] = counts;
 
 
+        order['product_category_ids'] = catIds;
+        order['product_category_names'] = catNames;
+        order['product_counts'] = counts;
 
+
+        order['action_type'] = 'order';
         order['email'] = $("#email-form").val();
         order['first_name'] = $("#name-form").val();
         order['last_name'] = $("#surname-form").val();
-        order['subscribe'] = $("#subscribe-form").is(':checked') ? 1 : 0;
+        order['subscriber_status'] = $("#subscribe-form").is(':checked') ? 1 : 0;
         order['city'] = $("#city-form").val();
-        order['payment_value'] = getBasketPrice(basket);
+        order['base_payment_value'] = getBasketPrice(basket);
+        order['order_payment_value'] = getBasketPrice(basket);
+        order['order_id'] = Math.floor(Math.random() * (1000-2)) + 1;
+        order['country'] = 'Polska';
+        order['base_currency'] = 'PLN';
+        order['order_currency'] = 'PLN';
 
+        //obligatory edrone fields
 
-       _edrone.action_type = 'order';
-       _edrone.email = order['email'];
-       _edrone.first_name = order['first_name'];
-       _edrone.last_name = order['last_name'];
-       _edrone.subscriber_status = order['subscribe'];
-       _edrone.product_ids = order['ids'];
-       _edrone.product_titles = order['titles'];
-       _edrone.product_images = order['imgs'];
-       _edrone.product_urls = order['urls'];
-       _edrone.product_category_ids = order['catIds'];
-       _edrone.product_category_names = order['catNames'];
-       _edrone.product_counts = order['counts'];
-       _edrone.order_id = '4321';
-       _edrone.country = 'Polska';
-       _edrone.city = order['city'];
-       _edrone.base_currency = 'PLN';
-       _edrone.order_currency = 'PLN';
-       _edrone.base_payment_value = order['payment_value'];
-       _edrone.order_payment_value = order['payment_value'];
+        order['app_id'] = _edrone['app_id'];
+        order['version'] = _edrone['version'];
+        order['platform_version'] = _edrone['platform_version'];
+        order['platform'] = _edrone['platform'];
+
+      //  _edrone.action_type = 'order';
+      //  _edrone.email = order['email'];
+      //  _edrone.first_name = order['first_name'];
+      //  _edrone.last_name = order['last_name'];
+      //  _edrone.subscriber_status = order['subscribe'];
+      //  _edrone.product_ids = order['ids'];
+      //  _edrone.product_titles = order['titles'];
+      //  _edrone.product_images = order['imgs'];
+      //  _edrone.product_urls = order['urls'];
+      //  _edrone.product_category_ids = order['catIds'];
+      //  _edrone.product_category_names = order['catNames'];
+      //  _edrone.product_counts = order['counts'];
+      //  _edrone.order_id = '1';
+      //  _edrone.country = 'Polska';
+      //  _edrone.city = order['city'];
+      //  _edrone.base_currency = 'PLN';
+      //  _edrone.order_currency = 'PLN';
+      //  _edrone.base_payment_value = order['payment_value'];
+      //  _edrone.order_payment_value = order['payment_value'];
 
         //AJAX send
         var json_upload = JSON.stringify(_edrone);
-        var edroneURI = xwwwfurlenc(_edrone);
+        var edroneURI = xwwwfurlenc(order);
         //console.log(json_upload);
-        //console.log(edroneURI);
+        console.log(edroneURI);
 
         $.ajax({
             url: "js/edrone.php",
