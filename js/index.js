@@ -1,23 +1,4 @@
-//functions
-function jsonToUri(json) {
-  return encodeURIComponent(JSON.stringify(json));
-}
 
-function xwwwfurlenc(srcjson){
-    if(typeof srcjson !== "object")
-      if(typeof console !== "undefined"){
-        console.log("\"srcjson\" is not a JSON object");
-        return null;
-      }
-    u = encodeURIComponent;
-    var urljson = "";
-    var keys = Object.keys(srcjson);
-    for(var i=0; i <keys.length; i++){
-        urljson += u(keys[i]) + "=" + u(srcjson[keys[i]]);
-        if(i < (keys.length-1))urljson+="&";
-    }
-    return urljson;
-}
 
 
 // edrone init
@@ -104,9 +85,26 @@ var products = [
 
 var basket = [];
 
+// functions ///////////////////////////////////////////////////////////////////////////
+
+//json to x-www-form-urlencoded
+function xwwwfurlenc(srcjson){
+    if(typeof srcjson !== "object")
+      if(typeof console !== "undefined"){
+        console.log("\"srcjson\" is not a JSON object");
+        return null;
+      }
+    u = encodeURIComponent;
+    var urljson = "";
+    var keys = Object.keys(srcjson);
+    for(var i=0; i <keys.length; i++){
+        urljson += u(keys[i]) + "=" + u(srcjson[keys[i]]);
+        if(i < (keys.length-1))urljson+="&";
+    }
+    return urljson;
+}
 
 //calculate basket pirice
-
 function getBasketPrice(bsk){
   var total = 0;
 
@@ -118,7 +116,6 @@ function getBasketPrice(bsk){
 }
 
 // clear basket
-
 function basketClear() {
   localStorage.removeItem("edrone_basket");
   $("#buy-button").hide();
@@ -178,6 +175,50 @@ function validateOrderInput(){
   return true;
 }
 
+
+function saveMail(email) {
+
+  localStorage.setItem("customerMail",email);
+  console.log("Mail saved: " + email);
+
+}
+
+function getMail() {
+  var mail = localStorage.getItem("customerMail");
+  return mail === null ? "unknown@mail.com" : mail;
+}
+
+function isMailStored() {
+  var mail = localStorage.getItem("customerMail");
+  return mail === null ? false : true;
+}
+
+function isOrderIdStored() {
+  var id = localStorage.getItem("edroneOrderId");
+  return id === null ? false : true;
+}
+
+function getStoredOrderId() {
+  if(isOrderIdStored){
+    return localStorage.getItem("edroneOrderId");
+  }
+}
+
+function mailClearStorage() {
+
+}
+
+function orderClearStorage(){
+  localStorage.removeItem("edroneOrderId");
+}
+////////////////////////////////////////////////////////////////////////////////////////////////
+    //hide cancel-order
+    if(isOrderIdStored()){
+      $("#cancel-last-order").show();
+    }
+    else{
+      $("#cancel-last-order").hide();
+    }
     //hide buy-button until basket not empty - check local storage
     if(localStorage.getItem("edrone_basket") === null ){
       $("#buy-button").hide();
@@ -283,7 +324,7 @@ function validateOrderInput(){
     });
 
 
-    //clearing basket
+    //clearing basket - order canacel
     $("#clear-basket").click(function() {
       localStorage.removeItem("edrone_basket");
       $("#buy-button").hide();
@@ -362,9 +403,10 @@ function validateOrderInput(){
         var edroneURI = xwwwfurlenc(order);
         //console.log(edroneURI);
 
+        // save order_id to allow order canacel
+        localStorage.setItem("edroneOrderId",order['order_id']);
 
         //before sending data to check if they are valid
-
         if(validateOrderInput()){
 
         $.ajax({
@@ -376,6 +418,7 @@ function validateOrderInput(){
                alert("Zamówienie przetworzone pomyślnie");
                $("#myModal").modal('hide');
                basketClear();
+               $("#cancel-last-order").show();
             },
             error: function(jqXHR, textStatus, errorThrown) {
                console.log(textStatus, errorThrown);
@@ -385,7 +428,45 @@ function validateOrderInput(){
 
 
 
+
     })
+
+    //save mail to local storage
+    $("#email-form").focusout(function () {
+      var that = $(this);
+      var mail = that.val();
+      if(mailValidate(mail)){
+        saveMail(mail);
+      }
+      //console.log(that.val());
+
+      //send subscribe trace
+      _edrone.action_type = 'subscribe';
+      _edrone.email = mail;
+      _edrone.subscriber_status = '1';
+      _edrone.init();
+    });
+
+
+
+    //cancel-last-order
+    $("#cancel-last-order").click(function () {
+      console.log("Canceled");
+
+      //send order cancel trace
+      _edrone.email =getMail();
+      _edrone.action_type = 'order_cancel';
+      _edrone.order_id = getStoredOrderId();
+      _edrone.init();
+
+      orderClearStorage();
+      $("#cancel-last-order").hide();
+
+      alert("Zamówienie zostało anulowane");
+
+    });
+
+
     //size button style change
 
     $("#size-btn-1").click(function(){
