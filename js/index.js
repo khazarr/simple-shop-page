@@ -212,12 +212,14 @@ function orderClearStorage(){
   localStorage.removeItem("edroneOrderId");
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////
-    //hide cancel-order
+    //hide cancel-order && basket-info-preview
     if(isOrderIdStored()){
       $("#cancel-last-order").show();
+      $("#basket-info-preview").show();
     }
     else{
       $("#cancel-last-order").hide();
+      $("#basket-info-preview").hide();
     }
     //hide buy-button until basket not empty - check local storage
     if(localStorage.getItem("edrone_basket") === null ){
@@ -233,6 +235,7 @@ function orderClearStorage(){
       console.log(basket);
 
       $("#basket-info").html("Elementy w koszyku: " + basket.length);
+      $("#basket-info-preview").show();
     }
 
 
@@ -244,7 +247,7 @@ function orderClearStorage(){
       $("#buy-button").show();
       $("#basket-info").show();
       $("#clear-basket").show();
-
+      $("#basket-info-preview").show();
 
 
       for (var i = 0; i < products.length ; i++){
@@ -330,6 +333,7 @@ function orderClearStorage(){
       $("#buy-button").hide();
       $("#basket-info").hide();
       $("#clear-basket").hide();
+      $("#basket-info-preview").hide();
       basket = [];
 
     });

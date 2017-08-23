@@ -8,6 +8,11 @@ html, body, .container-fluid{
    height:100%;
 }
 
+a {
+  text-decoration: none;
+}
+
+
 #gallery{
     text-align: center
 }
@@ -134,6 +139,11 @@ html, body, .container-fluid{
   margin-bottom: 1em;
 }
 
+#basket-info-preview:hover{
+  cursor: pointer;
+  font-weight: bold;
+}
+
 .size-eu{
     font-size: 18px;
     font-weight: 700;
@@ -172,9 +182,22 @@ html, body, .container-fluid{
     transform:scale(0.9);
 }
 
+#product-preview-img{
+  padding-right: 20px;
+}
 .media-object{
   width: 72px;
   height: auto;
+  float: left;
+}
+
+.media-heading{
+
+  color: #3F3363;
+}
+
+.media-heading:hover{
+  text-decoration: none;
 }
 /* buttons props*/
 

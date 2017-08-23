@@ -7,13 +7,14 @@ function basktPreviewDisplay(basket) {
 
   //add each item
   basket.map(function (item) {
+    console.log(item['product_url']);
     $("#basket-item-display").append(
     '<tr>'+
     '  <td class="col-sm-8 col-md-6">' +
       '  <div class="media">' +
-            '<a class="thumbnail pull-left" href="#"> <img class="media-object" '+
+            '<a class="thumbnail pull-left" href="#"> <img id="product-preview-img" class="media-object" '+
             'src=' + item['product_url'] +
-            'style="width: 42px; height: 42px;"> </a>' +
+            ' </a>' +
             '<div class="media-body">' +
                 '<h4 class="media-heading">'+ item['product_title']+'</h4>' +
           '  </div>' +
@@ -35,10 +36,6 @@ function basktPreviewDisplay(basket) {
   );
 }
 
-//bolded on mousenter
-$("#basket-info-preview").mouseenter(function () {
-
-});
 
 $("#basket-info-preview").click(function () {
   $("#basket-preview").fadeIn();
@@ -47,7 +44,6 @@ $("#basket-info-preview").click(function () {
 
 $("#basket-preview").click(function () {
   $("#basket-preview").fadeOut();
-  console.log("HALO");
 });
 // $("#basket-info-preview").mouseleave(function () {
 //   setTimeout(function () {
