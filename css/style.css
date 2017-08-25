@@ -148,6 +148,22 @@ html, body, .container-fluid{
   cursor: pointer;
 }
 
+#basket-preview{
+  width: 600px;
+  height: auto;
+  /*display: none;*/
+    position: absolute;
+    z-index: 99999;
+    width: 600px;
+    padding: 10px;
+    background: #EEEFEB;
+    color: #000000;
+    border: 1px solid #4D4F53;
+    margin: 0px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(164, 164, 164, 1);
+    box-shadow: 0px 0px 5px 0px rgba(164, 164, 164, 1);
+}
+
 /* buttons props*/
 
 .btn-size {

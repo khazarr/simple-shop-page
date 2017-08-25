@@ -63,7 +63,7 @@
 
             <div id="price">259,00 zł</div>
 
-            <div id="basket-info">Elements in basket:</div>
+            <div id="basket-info" data-popbox="basket-preview">Elements in basket:</div>
 
             <div id="buttons">
                 <button type="button" class="btn btn-primary btn-block" id="basket-add">Dodaj do koszyka</button>
@@ -151,11 +151,69 @@
   </div>
 </div>
 
+<!--Basket preview -->
+<div class="container" id="basket-preview">
+    <div class="row">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+
+                        <th>Produkty</th>
+                        <th class="text-center">Cena</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-sm-8 col-md-6">
+                        <div class="media">
+                            <a class="thumbnail pull-left" href="#"> <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;"> </a>
+                            <div class="media-body">
+                                <h4 class="media-heading">buty-nike-zoom <br>stefan-janoski<br>409</h4>
+                            </div>
+                        </div></td>
+
+                        <td class="col-sm-1 col-md-1 text-center"><strong>$14.61</strong></td>
+                        <td class="col-sm-1 col-md-1">
+                        <button type="button" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove"></span> Remove
+                        </button></td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-6">
+                        <div class="media">
+                            <a class="thumbnail pull-left" href="#"> <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;"> </a>
+                            <div class="media-body">
+                                <h4 class="media-heading"><a href="#">Product name</a></h4>
+                            </div>
+                        </div></td>
+                        <td class="col-md-1 text-center"><strong>$9.98</strong></td>
+                        <td class="col-md-1">
+                        <button type="button" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove"></span> Remove
+                        </button></td>
+                    </tr>
+                    <tr>
+
+                        <td>   </td>
+                                        <td><h3>Total</h3></td>
+                        <td class="text-right"><h3><strong>$31.53</strong></h3></td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="js/index.js"></script>
         <script src="js/notif.js"></script>
+        <script src="js/basket-preview.js"></script>
 
     </body>
 </html>
