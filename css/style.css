@@ -154,6 +154,7 @@ html, body, .container-fluid{
   /*display: none;*/
     position: absolute;
     z-index: 99999;
+    right: 100px ;
     width: 600px;
     padding: 10px;
     background: #EEEFEB;
