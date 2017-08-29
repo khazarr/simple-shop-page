@@ -2,7 +2,7 @@
 (function(srcjs) {
   window._edrone = window._edrone || {};
 
-  _edrone.app_id = '598ee28767cf4';
+  _edrone.app_id = '59a553d62e4a3';
   _edrone.version = '1.0.0';
   _edrone.platform_version = '1.1.26';
   _edrone.platform = 'magento';
@@ -140,13 +140,19 @@ function textValidate(text) {
     alert("Żadne pole nie może byc puste");
     return false;
   }
-
-  if (re.test(text)) {
+  else {
     return true;
-  } else {
-    alert(text + " jest niepoprawne. Użyj tylko liter, bez polskich znaków.");
-    return false;
   }
+
+  //regex for only letters - no special characters
+  // if (re.test(text)) {
+  //   return true;
+  // } else {
+  //   alert(text + " jest niepoprawne. Użyj tylko liter, bez polskich znaków.");
+  //   return false;
+  // }
+
+
 
 }
 
@@ -401,6 +407,7 @@ $("#place-order").click(function() {
 
   //encode JSON to x-www-form-urlencoded
   var edroneURI = xwwwfurlenc(order);
+  var orderStringified = JSON.stringify(order);
   //console.log(edroneURI);
 
   // save order_id to allow order canacel
@@ -413,7 +420,7 @@ $("#place-order").click(function() {
       url: "js/edrone.php",
       type: "post",
       data: {
-        data: edroneURI
+        data: orderStringified
       },
       success: function(response) {
         console.log(response);

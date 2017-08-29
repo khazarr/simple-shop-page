@@ -1,6 +1,11 @@
 <?php
 
   $content = $_POST['data'];
+
+  $assoc_array = json_decode($content);
+  $url_encoded = http_build_query($assoc_array);
+
+
   //$decoded = json_decode($content);
 
   // foreach ($decoded as $key => $value) {
@@ -20,7 +25,7 @@
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => "POST",
     //CURLOPT_POSTFIELDS => "app_id=598ee28767cf4&version=1.0.0&action_type=product_view&platform_version=1.1.26&platform=prestashop&sender_type=server&product_ids=123&product_titles=BUTY%20NIKE%20STEFAN&product_images=http%3A%2F%2Fi.imgur.com%2FquGZsz2.jpg&product_urls=http%3A%2F%2Fi.imgur.com%2FquGZsz2.jpg&product_category_ids=2~3~4&product_category_names=G%C5%82%C3%B3wna~Buty~Sportowe~Nike",
-    CURLOPT_POSTFIELDS => $content,
+    CURLOPT_POSTFIELDS => $url_encoded,
     CURLOPT_HTTPHEADER => array(
       "cache-control: no-cache",
       "content-type: application/x-www-form-urlencoded",
@@ -40,6 +45,7 @@
   }
 
   echo "\n \n $content \n \n";
+  echo "\n \n $url_encoded \n \n";
   echo "DOSZŁO";
 
  ?>
